@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>pagina05</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pagina05</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <h1 style="color: rgb(95, 61, 215);">{{nombre}}</h1>
+
+  <table align="center">
+    <tr>
+      <td>Nombre</td>
+      
+      <td>Edad</td>
+    </tr>
+  
+    <tr *ngFor="let i of personas">
+      <td>{{i.nombre}} <span *ngIf="i.edad>=18">
+        Es Mayor</span></td>
+      <td>{{i.edad}}</td>   
+      <td>{{i.escolaridad}}</td>  
+    </tr>
+  </table>
+  
+  
+  <ul>
+    <li *ngFor="let x of fruits">{{x.name}}</li>
+  </ul>
+  
+  <ion-button (click)="presentAlert()">Ejemplo de Alert</ion-button>
+</ion-content>

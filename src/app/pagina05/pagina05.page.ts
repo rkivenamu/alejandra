@@ -1,7 +1,4 @@
-import { Component, OnInit, ɵbypassSanitizationTrustStyle } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-
-type Fruit = Array<{ id: number; name: string }>;
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pagina05',
@@ -11,44 +8,21 @@ type Fruit = Array<{ id: number; name: string }>;
 })
 export class Pagina05Page implements OnInit {
 
-nombre:string='Juan Pérez';
+  constructor() { }
 
-fruits: Fruit = [
-  { id: 1, name: "Apple" },
-  { id: 2, name: "Banana" },
-  { id: 3, name: "Guava" },
-  { id: 4, name: "Strawberry" }
-];
-
-//------------Array Persona------------------------
-personas: Persona[] = [
-  {nombre: "Iron Man",edad:40,escolaridad:'Licenciatura'},
-  {nombre: "X",edad:50,escolaridad:'Licenciatura'},
-  {nombre: "Juan Pérez",edad:10,escolaridad:'Primaria'},
-  {nombre: "Alfredo",edad:16,escolaridad:'Preparatoria'},
-  {nombre: "Lyan",edad:60,escolaridad:'Doctorado'},
-];
-
-constructor(private alertController: AlertController) {
-//this.presentAlert();
-}
-       async presentAlert() {
-        const alert = await this.alertController.create({
-          header: 'Ejemplo de Alert',
-          subHeader: 'Important message',
-          message: 'Este es un msg de alerta',
-          buttons: ['OK'],
-        });
-    
-        await alert.present();
-      }
-   
   ngOnInit() {
-    console.log(this.fruits);
   }
 
-}
-class Persona {
-  constructor(public nombre: string, public edad: number,
-    public escolaridad:string) { }
+  numero: number = 0;
+  resultado: number | null = null;
+
+  calcularFactorial() {
+    this.resultado = this.factorial(this.numero);
+  }
+  
+  factorial(n: number): number {
+    if (n < 0) return -1; // Factorial no definido para números negativos
+    if (n === 0) return 1; // 0! es 1
+    return n * this.factorial(n - 1);
+  }
 }
