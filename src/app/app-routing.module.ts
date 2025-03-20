@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'pagina06',
     loadChildren: () => import('./pagina06/pagina06.module').then( m => m.Pagina06PageModule)
   },
+  {
+    path: 'pagina02',
+    loadChildren: () => import('./pagina02/pagina02.module').then( m => m.Pagina02PageModule)
+  },
 ];
 
 @NgModule({
